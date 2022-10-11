@@ -21,6 +21,21 @@ pipeline{
             }
         }
 
+stage('Deploy') {
+
+steps {
+
+sh '''
+
+oc project rsanzana-greetings
+
+oc start-build greeting-service --follow --wait
+
+'''
+
+}
+
+}
         // Add the "Deploy" stage here
     }
 }
